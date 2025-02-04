@@ -4,7 +4,7 @@ import '../features/on_board/on_board.dart';
 import '../utils/color.dart';
 
 class AppStackBody extends StatefulWidget {
-  final List<Widget> children;
+  final Widget children;
   final List<Widget>? buttons;
   final bool isBack;
   final bool isButtons;
@@ -97,7 +97,7 @@ class _AppStackBodyState extends State<AppStackBody> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  ...widget.children,
+                  widget.children,
                   Positioned(
                     bottom: -175,
                     right: -155,

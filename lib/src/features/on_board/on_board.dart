@@ -56,22 +56,46 @@ class _OnBoardPageState extends State<OnBoardPage> {
             ),
           ),
         ),
-      ],
-      children: [
-        PageView.builder(
-          onPageChanged: (page) {
-            _page = page;
-            setState(() {});
-
-            print(_page);
-          },
-          controller: controller,
-          itemBuilder: (c, i) {
-            return pages[i];
-          },
-          itemCount: pages.length,
+        SizedBox(width: 10),
+        Expanded(
+          child: AppButton(
+            title: _page < 2 ? 'Keep Customizing' : "Signup",
+            fontSize: 20,
+            height: 80,
+            onPressed: () {
+              _page++;
+              controller.animateToPage(_page,
+                  duration: Duration(milliseconds: 500), curve: Curves.ease);
+              setState(() {});
+            },
+            backgroundColor: null,
+            boxDecoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0xff000000).withOpacity(0.45),
+                  offset: Offset(0, 17),
+                  spreadRadius: 0,
+                  blurRadius: 44,
+                )
+              ],
+              color: AppColors.button.withOpacity(0.9),
+            ),
+          ),
         ),
       ],
+      children: PageView.builder(
+        onPageChanged: (page) {
+          _page = page;
+          setState(() {});
+
+          print(_page);
+        },
+        controller: controller,
+        itemBuilder: (c, i) {
+          return pages[i];
+        },
+        itemCount: pages.length,
+      ),
     );
   }
 }

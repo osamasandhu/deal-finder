@@ -1,4 +1,4 @@
-import 'package:deal_fineder_app/src/features/on_board/on_board.dart';
+import 'package:deal_fineder_app/src/features/welcome_page.dart';
 import 'package:deal_fineder_app/src/utils/color.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.white,
         highlightColor: AppColors.button,
       ),
-      home: OnBoardPage(),
+      home: WelcomePage(),
     );
   }
 }
